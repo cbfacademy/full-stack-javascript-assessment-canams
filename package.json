@@ -1,0 +1,26 @@
+{
+  "name": "full-stack-javascript",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:frontend": "cd packages/frontend && npm start",
+    "start:backend": "cd packages/backend && npm start",
+    "install:all": "npm install && cd packages/frontend && npm install && cd ../backend && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbfacademy/full-stack-javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbfacademy/full-stack-javascript/issues"
+  },
+  "homepage": "https://github.com/cbfacademy/full-stack-javascript#readme"
+}
