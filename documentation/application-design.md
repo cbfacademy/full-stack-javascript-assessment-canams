@@ -20,6 +20,7 @@ A wireframe for the second version of the web app, for desktop, tablet and mobil
 
 Detailing the various components of the application and their makeup and interactions.
 
-1. **Database Model Diagram?:** ?
-   ![Database Diagram](diagrams/database.png)
+**Database Model Diagram:**
+
+![Database Diagram](diagrams/database.png)
 
