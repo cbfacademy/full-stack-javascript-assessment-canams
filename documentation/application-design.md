@@ -16,13 +16,10 @@ A wireframe for the first version of the web app, for desktop, tablet and mobile
 
 A wireframe for the second version of the web app, for desktop, tablet and mobile. _Pending_
 
-## Prototype
-
-An interactive UI mockup of the web app, detailing the application's flow and design. [🔗](https://www.figma.com/file/hrscc24yiVaoHaQYFDRk8T/Prototype?type=design&mode=design&t=RvGUp1HbAewNPCOu-1)
-
 ## Architectural Diagrams
 
 Detailing the various components of the application and their makeup and interactions.
 
-1. **Data(base) Diagram?:** ? _Pending_
+1. **Database Model Diagram?:** ?
+   ![Database Diagram](diagrams/database.png)
 
