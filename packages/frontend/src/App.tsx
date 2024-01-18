@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Header from "./components/Header"
 import "./styles/App.css"
 import auth from "./services/firebase"
+import Dashboard from "./components/Dashboard"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -14,7 +15,7 @@ function App() {
     return user ? setIsLoggedIn(true) : setIsLoggedIn(false)
   })
 
-  console.log(isLoggedIn)
+  // console.log(isLoggedIn)
 
   return (
     <ThemeProvider theme={theme}>
@@ -23,6 +24,10 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route
+              path="/dashboard"
+              element={<Dashboard isLoggedIn={isLoggedIn} />}
+            />
           </Routes>
         </BrowserRouter>
       </div>

@@ -1,6 +1,7 @@
 import express from "express"
 import authenticate from "../middleware/authenticate"
 import firebaseAdmin from "../config/firebase"
+import User from "../models/User"
 
 const router = express.Router()
 
@@ -9,7 +10,13 @@ router.get(
   "/",
   authenticate,
   async (req: express.Request, res: express.Response) => {
-    res.status(200).json(req)
+    const { user } = req.body
+    console.log(user)
+    res.status(200).send({
+      name: user.name,
+      email: user.email,
+      skinProfile: user.skin_profile ?? null,
+    })
   }
 )
 
@@ -31,11 +38,13 @@ router.post("/", async (req, res) => {
 
     if (newFirebaseUser) {
       const userCollection = req.app.locals.db.collection("user")
-      await userCollection.insertOne({
-        email,
-        name,
+      const newUser = new User({
+        name: name,
+        email: email,
         firebaseId: newFirebaseUser.uid,
       })
+
+      await userCollection.insertOne(newUser)
     }
     return res
       .status(200)
