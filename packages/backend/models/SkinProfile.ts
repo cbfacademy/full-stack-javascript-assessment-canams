@@ -1,10 +1,9 @@
 import mongoose from "mongoose"
 
 const skinProfileSchema = new mongoose.Schema({
-  user_id: String,
   type: String,
-  concerns: String,
-  sensitivities: String,
+  concerns: Array,
+  prevRoutine: Array,
   budget: String,
   complexity: String,
 })
@@ -16,5 +15,5 @@ skinProfileSchema.set("toJSON", {
   },
 })
 
-export const skinProfileModel = mongoose.model("SkinProfile", skinProfileSchema)
+export default mongoose.model("SkinProfile", skinProfileSchema)
 

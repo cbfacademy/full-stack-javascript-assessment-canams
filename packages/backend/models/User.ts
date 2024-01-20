@@ -1,5 +1,4 @@
 import mongoose from "mongoose"
-import { skinProfileModel } from "./SkinProfile"
 
 const userSchema = new mongoose.Schema({
   name: String,

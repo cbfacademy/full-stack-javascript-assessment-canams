@@ -30,7 +30,7 @@ export default async function (
       return res.sendStatus(401)
     }
 
-    req.body = { user: user }
+    req.body = { ...req.body, user: user }
 
     next()
   } catch (err) {

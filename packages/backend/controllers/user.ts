@@ -5,13 +5,11 @@ import User from "../models/User"
 
 const router = express.Router()
 
-// TODO: implement
 router.get(
   "/",
   authenticate,
   async (req: express.Request, res: express.Response) => {
     const { user } = req.body
-    console.log(user)
     res.status(200).send({
       name: user.name,
       email: user.email,
