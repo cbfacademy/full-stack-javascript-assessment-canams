@@ -21,7 +21,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="app">
         <BrowserRouter>
-          <Header />
+          <Header loggedIn={isLoggedIn} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

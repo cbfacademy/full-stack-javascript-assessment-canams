@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getUser } from "../services/UserService"
 import { User } from "../types/User"
+import NewUser from "./NewUser"
 
 type DashboardProps = {
   isLoggedIn: boolean
@@ -14,7 +15,7 @@ const Dashboard = ({ isLoggedIn }: DashboardProps) => {
     const fetchData = async () => {
       const data = await getUser()
       const user = await data.json()
-      console.log(user)
+
       setUser(user)
     }
     if (isLoggedIn) {
@@ -25,7 +26,11 @@ const Dashboard = ({ isLoggedIn }: DashboardProps) => {
 
   if (loading) return <div>Loading....</div>
 
-  return <div>{user?.name}'s Dashboard</div>
+  if (user?.skinProfile) {
+    return <div>Returning user</div>
+  }
+
+  return <NewUser />
 }
 
 export default Dashboard

@@ -34,8 +34,7 @@ export default function SignIn({ open, setOpen }: SignInProps) {
   const handleSubmit = async () => {
     if (email && password) {
       try {
-        const user = await signIn(email, password)
-        console.log(user)
+        await signIn(email, password)
         navigate("/dashboard")
       } catch (e) {
         setError(e as string)
