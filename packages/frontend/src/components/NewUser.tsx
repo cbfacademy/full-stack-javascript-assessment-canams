@@ -9,6 +9,9 @@ import QuestionBuilder from "./QuestionBuilder"
 import Button from "@mui/material/Button"
 import { quiz } from "../data/quiz"
 import Loading from "./Loading"
+import { updateUserProfile } from "../services/RoutineService"
+import { SkinProfile } from "../types/SkinProfile"
+import { mapComplexity } from "../util/mapComplexity"
 
 const steps = [
   "Your skin",
@@ -21,12 +24,22 @@ const NewUser = () => {
   const [currentStep, setCurrentStep] = useState(0)
   const [quizComplete, setQuizComplete] = useState(false)
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentStep < quiz.length - 1) {
       setCurrentStep(currentStep + 1)
       return
     }
     setQuizComplete(true)
+    const userProfile: SkinProfile = {
+      type: quiz[0][0].userAnswer[0].toLowerCase() as SkinProfile["type"],
+      concerns: quiz[0][1].userAnswer,
+      prevRoutine: quiz[1][0].userAnswer,
+      complexity: mapComplexity(quiz[2][0].userAnswer[0]),
+      budget: quiz[2][1].userAnswer[0].toLowerCase() as SkinProfile["budget"],
+    }
+    await updateUserProfile(userProfile)
+    console.log(quiz[0][1].userAnswer)
+    console.log(quiz[1][0].userAnswer)
   }
 
   if (quizComplete) return <Loading />

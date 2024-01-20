@@ -1,10 +1,11 @@
 import { AnswerType, QuizItem } from "../types/QuizTypes"
 
-const skinQuestuions: QuizItem[] = [
+const skinQuestions: QuizItem[] = [
   {
     question: "What is your current skin type?",
     answerType: "radio" as AnswerType,
     answerOptions: ["Oily", "Dry", "Normal", "Combination", "Sensitive"],
+    userAnswer: [],
   },
   {
     question: "What are your current skin concerns?",
@@ -22,14 +23,17 @@ const skinQuestuions: QuizItem[] = [
       //   "Psoriasis*",
     ],
     limit: true,
+    userAnswer: [],
   },
 ]
-const routineQuestuions: QuizItem[] = [
+
+const routineQuestions: QuizItem[] = [
   {
     question: "Which of the following steps are currently in your routine?",
     answerType: "checkbox" as AnswerType,
     answerOptions: ["Cleanse", "Tone", "Hydrate", "Treat", "Sun protection"],
     limit: false,
+    userAnswer: [],
   },
 ]
 const preferencesQuestions: QuizItem[] = [
@@ -44,14 +48,16 @@ const preferencesQuestions: QuizItem[] = [
       "> 30 minutes",
       "I don't mind/it varies",
     ],
+    userAnswer: [],
   },
   {
     question: "What is your budget for skincare products?",
     answerType: "radio" as AnswerType,
     answerOptions: ["Basic", "Mid-range", "Luxury"],
+    userAnswer: [],
   },
 ]
-const lifestyleQuestuions: QuizItem[] = [
+const lifestyleQuestions: QuizItem[] = [
   {
     question:
       "Do you have specific lifestyle factors that might impact your skin?",
@@ -63,13 +69,14 @@ const lifestyleQuestuions: QuizItem[] = [
       "Hormonal imbalance",
     ],
     limit: false,
+    userAnswer: [],
   },
 ]
 
 export const quiz = [
-  skinQuestuions,
-  routineQuestuions,
+  skinQuestions,
+  routineQuestions,
   preferencesQuestions,
-  lifestyleQuestuions,
+  lifestyleQuestions,
 ]
 

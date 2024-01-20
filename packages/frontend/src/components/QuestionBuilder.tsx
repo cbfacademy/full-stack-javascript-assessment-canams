@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import TextField from "@mui/material/TextField"
 import ToggleButton from "@mui/material/ToggleButton"
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
@@ -18,6 +18,20 @@ const QuestionBuilder = ({ quizItem }: QuestionBuilderProps) => {
   const [multiAnswer, setMultiAnswer] = useState<string[]>([])
   const [error, setError] = useState(false)
   const { question, answerType, answerOptions, limit } = quizItem
+
+  useEffect(() => {
+    if (quizItem.userAnswer.length > 0) {
+      quizItem.userAnswer = []
+    }
+    if (answer) quizItem.userAnswer.push(answer)
+  }, [answer])
+
+  useEffect(() => {
+    if (quizItem.userAnswer.length > 0) {
+      quizItem.userAnswer = []
+    }
+    if (multiAnswer.length > 0) quizItem.userAnswer = multiAnswer
+  }, [multiAnswer])
 
   let answerInput
   switch (answerType) {

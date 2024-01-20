@@ -16,6 +16,6 @@ export const createUser = (newUser: User) =>
 
 export const getUser = async () => {
   const headers = await createToken()
-  return fetch("http://localhost:8080/user", headers)
+  return fetch("http://localhost:8080/user", { headers: headers })
 }
 
