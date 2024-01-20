@@ -17,6 +17,14 @@
   justify-content: space-around;
 }
 
+.routine-container h5 {
+  margin-top: 0;
+}
+
+.routine-container p {
+  font-size: 0.6em;
+}
+
 .day-routine {
   height: 24vh;
   width: 12vw;
@@ -59,13 +67,22 @@ ul {
 }
 
 .plan-item-card {
-  height: 40vh;
+  height: 50vh;
   width: 30vw;
 
   min-width: fit-content;
   min-height: fit-content;
 
   margin-top: 20px;
+}
+
+.plan-item-label {
+  margin: 5px 10px;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .plan-done {
@@ -80,5 +97,22 @@ ul {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+}
+
+.learning-info {
+  color: black;
+}
+
+.info-header {
+  width: 100%;
+  text-align: center;
+}
+
+.info-text {
+  font-size: 0.8em;
+}
+
+.dismiss {
+  margin: 0 auto;
 }
 

@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 const routineSchema = new mongoose.Schema({
   profile: String,
-  week: Array,
+  day: Array,
   treatments: Array,
 })
 routineSchema.set("toJSON", {
