@@ -24,7 +24,7 @@ function App() {
         <BrowserRouter>
           <Header loggedIn={isLoggedIn} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
             <Route path="/new-user" element={<NewUser />} />
             <Route
               path="/dashboard"
