@@ -4,7 +4,11 @@ import "../styles/Home.css"
 import SignUp from "./signIn/SignUp"
 import SignIn from "./signIn/SignIn"
 
-const Home = () => {
+type HomeProps = {
+  isLoggedIn: boolean
+}
+
+const Home = ({ isLoggedIn }: HomeProps) => {
   const [openSignUp, setOpenSignUp] = useState(false)
   const [openSignIn, setOpenSignIn] = useState(false)
 
@@ -21,6 +25,7 @@ const Home = () => {
             size="large"
             sx={{ borderRadius: 0 }}
             onClick={() => setOpenSignUp(true)}
+            disabled={isLoggedIn}
           >
             <span>Get Started</span>
           </Button>
@@ -29,6 +34,7 @@ const Home = () => {
             variant="text"
             size="small"
             sx={{ textTransform: "none" }}
+            disabled={isLoggedIn}
           >
             Been here before? Log In here
           </Button>
