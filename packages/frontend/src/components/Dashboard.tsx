@@ -31,9 +31,9 @@ const Dashboard = ({ isLoggedIn }: DashboardProps) => {
     }
   }, [loading, user])
 
-  if (loading) return <div>Loading....</div>
+  if (loading || user === undefined) return <div>Loading....</div>
 
-  return <ExistingUser />
+  return <ExistingUser user={user} />
 }
 
 export default Dashboard

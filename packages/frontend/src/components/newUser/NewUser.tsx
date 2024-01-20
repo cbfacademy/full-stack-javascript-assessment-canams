@@ -32,7 +32,8 @@ const NewUser = () => {
     setQuizComplete(true)
     const userProfile: SkinProfile = {
       type: quiz[0][0].userAnswer[0].toLowerCase() as SkinProfile["type"],
-      concerns: quiz[0][1].userAnswer,
+      concerns:
+        quiz[0][1].userAnswer[0].toLowerCase() as SkinProfile["concerns"],
       prevRoutine: quiz[1][0].userAnswer,
       complexity: mapComplexity(quiz[2][0].userAnswer[0]),
       budget: quiz[2][1].userAnswer[0].toLowerCase() as SkinProfile["budget"],

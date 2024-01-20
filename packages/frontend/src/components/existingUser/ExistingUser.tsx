@@ -7,11 +7,16 @@ import Typography from "@mui/material/Typography"
 import Routine from "./Routine"
 import Plan from "./Plan"
 import Progress from "./Progress"
+import { User } from "../../types/User"
 
-interface TabPanelProps {
+type TabPanelProps = {
   children?: React.ReactNode
   index: number
   value: number
+}
+
+type ExistingUserProps = {
+  user: User
 }
 
 function CustomTabPanel(props: TabPanelProps) {
@@ -35,7 +40,7 @@ function CustomTabPanel(props: TabPanelProps) {
   )
 }
 
-const ExistingUser = () => {
+const ExistingUser = ({ user }: ExistingUserProps) => {
   const [value, setValue] = useState(0)
   const handleChange = (newValue: number) => {
     setValue(newValue)
@@ -62,7 +67,7 @@ const ExistingUser = () => {
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-          <Routine changeTab={handleChange} />
+          <Routine changeTab={handleChange} user={user} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
           <Plan />

@@ -1,7 +1,9 @@
+import { SkinProfile } from "./SkinProfile"
+
 export type User = {
   name: string
   email: string
-  skinProfile?: {}
+  skinProfile?: SkinProfile
   password: string
 }
 

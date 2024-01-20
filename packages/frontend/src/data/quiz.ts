@@ -8,7 +8,7 @@ const skinQuestions: QuizItem[] = [
     userAnswer: [],
   },
   {
-    question: "What are your current skin concerns?",
+    question: "What is your current main skin concern?",
     answerType: "checkbox" as AnswerType,
     answerOptions: [
       "Acne",
@@ -31,7 +31,7 @@ const routineQuestions: QuizItem[] = [
   {
     question: "Which of the following steps are currently in your routine?",
     answerType: "checkbox" as AnswerType,
-    answerOptions: ["Cleanse", "Tone", "Hydrate", "Treat", "Sun protection"],
+    answerOptions: ["Cleanse", "Tone", "Serum", "Treat", "Sun protection"],
     limit: false,
     userAnswer: [],
   },

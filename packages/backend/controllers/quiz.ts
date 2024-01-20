@@ -4,20 +4,42 @@ import authenticate from "../middleware/authenticate"
 
 const router = express.Router()
 
-// TODO: implement
-// router.get(
-//   "/",
-//   authenticate,
-//   async (req: express.Request, res: express.Response) => {
-//     const { user } = req.body
-//     console.log(user)
-//     res.status(200).send({
-//       name: user.name,
-//       email: user.email,
-//       skinProfile: user.skin_profile ?? null,
-//     })
-//   }
-// )
+router.get(
+  "/",
+  authenticate,
+  async (req: express.Request, res: express.Response) => {
+    const { user } = req.body
+    res.status(200).send({
+      skinProfile: user.skin_profile ?? null,
+    })
+  }
+)
+
+router.get(
+  "/routine",
+  authenticate,
+  async (req: express.Request, res: express.Response) => {
+    const { type, concern } = req.query
+
+    console.log(req.query)
+    if (!type || !concern) {
+      return res.status(400).json({
+        error: "Invalid request parameters. Must contain type and concern.",
+      })
+    }
+
+    try {
+      const profile = `${type}-${concern}`
+      const routineCollection = req.app.locals.db.collection("routines")
+      const routine = await routineCollection.findOne({ profile: profile })
+
+      return res.status(200).json({ routine: routine })
+    } catch (err: any) {
+      console.error(err.message)
+      return res.status(500).json({ error: "Server error. Please try again" })
+    }
+  }
+)
 
 router.post("/", authenticate, async (req, res) => {
   const { type, concerns, prevRoutine, complexity, budget, user } = req.body

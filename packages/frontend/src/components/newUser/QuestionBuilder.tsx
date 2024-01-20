@@ -74,7 +74,7 @@ const QuestionBuilder = ({ quizItem }: QuestionBuilderProps) => {
       }
       const handleChange = (value: string, checked: boolean) => {
         if (checked && !multiAnswer.includes(value)) {
-          if (limit && multiAnswer.length >= 3) {
+          if (limit && multiAnswer.length >= 1) {
             setError(true)
           } else {
             setMultiAnswer([...multiAnswer, value])
@@ -98,7 +98,7 @@ const QuestionBuilder = ({ quizItem }: QuestionBuilderProps) => {
         >
           {limit && (
             <FormLabel component="legend" className="checkboxeHelper">
-              Pick up to 3
+              Pick up to 1 (multiple concerns not currently supported)
             </FormLabel>
           )}
           <FormGroup className="checkboxes">
