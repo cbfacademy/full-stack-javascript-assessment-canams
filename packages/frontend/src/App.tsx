@@ -7,6 +7,7 @@ import Header from "./components/Header"
 import "./styles/App.css"
 import auth from "./services/firebase"
 import Dashboard from "./components/Dashboard"
+import NewUser from "./components/newUser/NewUser"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -24,6 +25,7 @@ function App() {
           <Header loggedIn={isLoggedIn} />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/new-user" element={<NewUser />} />
             <Route
               path="/dashboard"
               element={<Dashboard isLoggedIn={isLoggedIn} />}

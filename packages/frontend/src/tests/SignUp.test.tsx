@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react"
 import { userEvent } from "@testing-library/user-event"
-import SignUp from "../components/SignUp"
+import SignUp from "../components/signIn/SignUp"
 import { vi } from "vitest"
 import { BrowserRouter } from "react-router-dom"
 

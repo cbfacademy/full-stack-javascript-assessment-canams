@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../styles/NewUser.css"
+import "../../styles/NewUser.css"
 import Paper from "@mui/material/Paper"
 import Box from "@mui/material/Box"
 import Stepper from "@mui/material/Stepper"
@@ -7,11 +7,11 @@ import Step from "@mui/material/Step"
 import StepLabel from "@mui/material/StepLabel"
 import QuestionBuilder from "./QuestionBuilder"
 import Button from "@mui/material/Button"
-import { quiz } from "../data/quiz"
+import { quiz } from "../../data/quiz"
 import Loading from "./Loading"
-import { updateUserProfile } from "../services/RoutineService"
-import { SkinProfile } from "../types/SkinProfile"
-import { mapComplexity } from "../util/mapComplexity"
+import { updateUserProfile } from "../../services/RoutineService"
+import { SkinProfile } from "../../types/SkinProfile"
+import { mapComplexity } from "../../util/mapComplexity"
 
 const steps = [
   "Your skin",
@@ -38,8 +38,6 @@ const NewUser = () => {
       budget: quiz[2][1].userAnswer[0].toLowerCase() as SkinProfile["budget"],
     }
     await updateUserProfile(userProfile)
-    console.log(quiz[0][1].userAnswer)
-    console.log(quiz[1][0].userAnswer)
   }
 
   if (quizComplete) return <Loading />

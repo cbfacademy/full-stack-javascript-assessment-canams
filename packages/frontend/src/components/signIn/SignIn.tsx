@@ -5,9 +5,14 @@ import Modal from "@mui/material/Modal"
 import Alert from "@mui/material/Alert"
 import TextField from "@mui/material/TextField"
 import { Button, FormControl, FormLabel } from "@mui/material"
-import "../styles/SignUp.css"
-import { createUser } from "../services/UserService"
+import "../../styles/SignIn.css"
+import { signIn } from "../../services/firebase"
 import { useNavigate } from "react-router-dom"
+
+type SignInProps = {
+  open: boolean
+  setOpen: (open: boolean) => void
+}
 
 const style = {
   position: "absolute",
@@ -16,42 +21,26 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  color: "black",
   boxShadow: 24,
   p: 4,
 }
 
-type SignUpProps = {
-  open: boolean
-  setOpen: (open: boolean) => void
-}
-
-export default function SignUp({ open, setOpen }: SignUpProps) {
+export default function SignIn({ open, setOpen }: SignInProps) {
   const [email, setEmail] = useState<string>()
-  const [name, setName] = useState<string>()
   const [password, setPassword] = useState<string>()
   const [error, setError] = useState<string | null>(null)
   const navigate = useNavigate()
 
   const handleSubmit = async () => {
-    if (name && email && password) {
+    if (email && password) {
       try {
-        const data = await createUser({
-          name: name,
-          email: email,
-          password: password,
-        })
-        if (data.error) {
-          setError(data.error)
-        } else {
-          navigate("/dashboard")
-        }
+        await signIn(email, password)
+        navigate("/dashboard")
       } catch (e) {
         setError(e as string)
       }
     }
   }
-
   return (
     <div id="modal-container">
       {error && (
@@ -68,17 +57,9 @@ export default function SignUp({ open, setOpen }: SignUpProps) {
       >
         <Box sx={style} className="modal">
           <Typography id="modal-title" variant="h6" component="h2">
-            Sign Up
+            Sign In
           </Typography>
           <FormControl>
-            <FormLabel htmlFor="name">Full Name</FormLabel>
-            <TextField
-              required
-              id="name"
-              type="text"
-              variant="standard"
-              onChange={(e) => setName(e.target.value)}
-            />
             <FormLabel htmlFor="email">Email</FormLabel>
             <TextField
               required
@@ -96,7 +77,7 @@ export default function SignUp({ open, setOpen }: SignUpProps) {
               onChange={(e) => setPassword(e.target.value)}
             />
             <Button type="submit" onClick={handleSubmit}>
-              Sign Up
+              Sign In
             </Button>
           </FormControl>
         </Box>

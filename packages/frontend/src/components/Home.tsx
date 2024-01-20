@@ -1,8 +1,8 @@
 import { useState } from "react"
 import Button from "@mui/material/Button"
 import "../styles/Home.css"
-import SignUp from "./SignUp"
-import SignIn from "./SignIn"
+import SignUp from "./signIn/SignUp"
+import SignIn from "./signIn/SignIn"
 
 const Home = () => {
   const [openSignUp, setOpenSignUp] = useState(false)
