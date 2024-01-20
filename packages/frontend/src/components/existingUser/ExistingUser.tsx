@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Tabs from "@mui/material/Tabs"
 import Tab from "@mui/material/Tab"
 import Box from "@mui/material/Box"
@@ -7,11 +7,19 @@ import Typography from "@mui/material/Typography"
 import Routine from "./Routine"
 import Plan from "./Plan"
 import Progress from "./Progress"
+import { User } from "../../types/User"
+import { getUserRoutine } from "../../services/RoutineService"
+import Learning from "./Learning"
+import Profile from "./Profile"
 
-interface TabPanelProps {
+type TabPanelProps = {
   children?: React.ReactNode
   index: number
   value: number
+}
+
+type ExistingUserProps = {
+  user: User
 }
 
 function CustomTabPanel(props: TabPanelProps) {
@@ -28,15 +36,16 @@ function CustomTabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography variant="h6">{children}</Typography>
         </Box>
       )}
     </div>
   )
 }
 
-const ExistingUser = () => {
+const ExistingUser = ({ user }: ExistingUserProps) => {
   const [value, setValue] = useState(0)
+  const [routine, setRoutine] = useState()
   const handleChange = (newValue: number) => {
     setValue(newValue)
   }
@@ -46,6 +55,21 @@ const ExistingUser = () => {
       "aria-controls": `simple-tabpanel-${index}`,
     }
   }
+
+  useEffect(() => {
+    const fetchRoutine = async () => {
+      if (user.skinProfile) {
+        const data = await getUserRoutine(
+          user.skinProfile.type,
+          user.skinProfile.concerns
+        )
+        setRoutine(data.routine)
+      }
+    }
+    fetchRoutine()
+  }, [])
+
+  if (!user.skinProfile || !routine) return <>Loading...</>
 
   return (
     <div className="dashboard-page">
@@ -57,18 +81,26 @@ const ExistingUser = () => {
             aria-label="basic tabs example"
           >
             <Tab label="Routine" {...a11yProps(0)} />
-            <Tab label="Plan" {...a11yProps(1)} />
+            <Tab label="Today" {...a11yProps(1)} />
             <Tab label="Progress" {...a11yProps(2)} />
+            <Tab label="Profile" {...a11yProps(3)} />
+            <Tab label="Learning" {...a11yProps(4)} />
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-          <Routine changeTab={handleChange} />
+          <Routine changeTab={handleChange} user={user} routine={routine} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          <Plan />
+          <Plan user={user} routine={routine} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
           <Progress />
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={3}>
+          <Profile user={user} />
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={4}>
+          <Learning />
         </CustomTabPanel>
       </Box>
     </div>

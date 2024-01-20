@@ -1,10 +1,16 @@
 import { Button } from "@mui/material"
 import Paper from "@mui/material/Paper"
+import { useEffect, useState } from "react"
+import { getUserRoutine } from "../../services/RoutineService"
+import { RoutineType } from "../../types/Routine"
+import { User } from "../../types/User"
 
 type RoutineProps = {
   changeTab: (value: number) => void
+  user: User
+  routine: RoutineType
 }
-const Routine = ({ changeTab }: RoutineProps) => {
+const Routine = ({ changeTab, user, routine }: RoutineProps) => {
   const weekRoutine = [
     { day: "Monday" },
     { day: "Tuesday" },
@@ -15,19 +21,20 @@ const Routine = ({ changeTab }: RoutineProps) => {
     { day: "Sunday" },
   ]
 
-  const treatments = [
-    { frequency: "monthly", activity: "facial" },
-    { frequency: "quarterly", activity: "other facial" },
-  ]
+  if (!routine) return <>"Loading..."</>
 
   return (
     <div>
-      <h2 className="header">Your Custom Routine</h2>
+      <h3 className="header">Your Custom Routine</h3>
       <div>
-        <h3>Weekly</h3>
+        <h4>Weekly</h4>
         <div className="routine-container">
-          {weekRoutine.map((dailyRoutine) => (
-            <Paper className="day-routine">{dailyRoutine.day}</Paper>
+          {weekRoutine.map((dailyRoutine, i) => (
+            <Paper key={i} className="day-routine">
+              <h5>{dailyRoutine.day}</h5>
+              <p>Today's Focus:</p>
+              <p>{routine.focus[i % 2]}</p>
+            </Paper>
           ))}
         </div>
       </div>
@@ -37,17 +44,17 @@ const Routine = ({ changeTab }: RoutineProps) => {
           className="day-button"
           onClick={() => changeTab(1)}
         >
-          Go to Day View
+          View Today
         </Button>
       </div>
 
       <div>
-        <h3>Regular Treatments</h3>
+        <h4>Regular Treatments</h4>
         <div className="treatment-container">
-          {treatments.length > 0 ? (
+          {routine.treatments.length > 0 ? (
             <ul>
-              {treatments.map((treatment) => (
-                <li className="treatment-item">
+              {routine.treatments.map((treatment, i) => (
+                <li key={i} className="treatment-item">
                   {treatment.activity} - {treatment.frequency}
                 </li>
               ))}

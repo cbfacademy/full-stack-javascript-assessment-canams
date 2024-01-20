@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 const skinProfileSchema = new mongoose.Schema({
   type: String,
-  concerns: Array,
+  concerns: String,
   prevRoutine: Array,
   budget: String,
   complexity: String,
