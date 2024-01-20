@@ -2,6 +2,7 @@ import express from "express"
 import helmet from "helmet"
 import cors from "cors"
 import userRouter from "./controllers/user"
+import quizRouter from "./controllers/quiz"
 import dotenv from "dotenv"
 import connectToDatabase from "./services/db"
 
@@ -34,6 +35,7 @@ const PORT = process.env.PORT || 5000
 connectToDatabase(uri, app)
   .then(() => {
     app.use("/user", userRouter)
+    app.use("/profile", quizRouter)
 
     app.listen(PORT, () => {
       console.log(`Server started at http://localhost:${PORT}`)
