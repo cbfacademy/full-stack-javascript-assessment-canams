@@ -12,6 +12,8 @@
   color: #a59781;
   font-family: "Source Code Pro", monospace;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 .nav-item:hover {

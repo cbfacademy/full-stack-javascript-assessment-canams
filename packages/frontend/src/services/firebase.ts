@@ -31,6 +31,16 @@ export const signIn = (email: string, password: string) =>
     throw "There was an error signing in. Please try again later."
   })
 
+export const createToken = async () => {
+  const user = auth.currentUser
+  const token = user && (await user.getIdToken())
+  const payloadHeader = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  }
+  return payloadHeader
+}
+
 export default {
   auth,
 }

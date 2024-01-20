@@ -1,9 +1,7 @@
 import express from "express"
 import helmet from "helmet"
-import admin from "firebase-admin"
 import cors from "cors"
-import { MongoClient, ServerApiVersion } from "mongodb"
-import userRouter from "./api/user"
+import userRouter from "./controllers/user"
 import dotenv from "dotenv"
 import connectToDatabase from "./services/db"
 

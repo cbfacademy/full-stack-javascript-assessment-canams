@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom"
+import Avatar from "@mui/material/Avatar"
 import "../styles/Header.css"
 
-const Header = () => {
+type HeaderProps = {
+  loggedIn: boolean
+}
+
+const Header = ({ loggedIn }: HeaderProps) => {
   return (
     <div className="nav">
       <Link to="/" className="nav-item">
@@ -13,6 +18,11 @@ const Header = () => {
       <Link to="/contact" className="nav-item">
         CONTACT
       </Link>
+      {loggedIn && (
+        <Link to="/dashboard" className="nav-item">
+          <Avatar>H</Avatar>
+        </Link>
+      )}
     </div>
   )
 }

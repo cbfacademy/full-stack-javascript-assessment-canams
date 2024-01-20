@@ -1,0 +1,27 @@
+.questionItem {
+}
+
+.question {
+  margin: 0;
+}
+
+.answer {
+  margin: 10px 0;
+}
+
+.checkboxesContainer {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.checkboxes {
+  height: 210px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.checkboxeHelper {
+  font-size: smaller !important;
+  margin-top: -10px;
+}
+
