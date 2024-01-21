@@ -35,6 +35,7 @@ const Home = ({ isLoggedIn }: HomeProps) => {
             size="small"
             sx={{ textTransform: "none" }}
             disabled={isLoggedIn}
+            className="login-text"
           >
             Been here before? Log In here
           </Button>

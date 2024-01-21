@@ -12,6 +12,11 @@
   background-size: cover;
 }
 
+.login-text {
+  font-weight: bold !important;
+  text-shadow: #323232;
+}
+
 .content {
   width: 60vw;
   display: flex;
@@ -46,6 +51,7 @@
   color: #fff;
   transition: all 0.3s;
   position: relative;
+  margin-bottom: 15px !important;
 }
 .start-button span {
   transition: all 0.3s;
