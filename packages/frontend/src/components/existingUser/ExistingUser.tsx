@@ -88,10 +88,10 @@ const ExistingUser = ({ user }: ExistingUserProps) => {
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-          <Routine changeTab={handleChange} user={user} routine={routine} />
+          <Routine changeTab={handleChange} routine={routine} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          <Plan user={user} routine={routine} />
+          <Plan user={user} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
           <Progress />

@@ -1,4 +1,6 @@
 import Button from "@mui/material/Button"
+import Chip from "@mui/material/Chip"
+import Paper from "@mui/material/Paper"
 import { User } from "../../types/User"
 
 type ProfileProps = {
@@ -8,15 +10,28 @@ const Profile = ({ user }: ProfileProps) => {
   return (
     <div>
       <h3 className="header">Your Skin Profile</h3>
-      <ul>
-        <li>Skin type: {user.skinProfile?.type}</li>
-        <li>Concerns: {user.skinProfile?.concerns}</li>
-        <li>Budget: {user.skinProfile?.budget}</li>
-        <li>Complexity: {user.skinProfile?.complexity}</li>
-      </ul>
-      <Button variant="outlined" disabled>
-        Retake Quiz
-      </Button>
+      <div className="profile-container">
+        <Paper className="profile">
+          {/* <ul> */}
+          <p>
+            Skin type: <Chip label={user.skinProfile?.type} />
+          </p>
+          <p>
+            Concerns: <Chip label={user.skinProfile?.concerns} />
+          </p>
+          <p>
+            Budget: <Chip label={user.skinProfile?.budget} />
+          </p>
+          <p>
+            Complexity: <Chip label={user.skinProfile?.complexity} />
+          </p>
+          {/* </ul> */}
+        </Paper>
+
+        <Button variant="outlined" className="retake-btn" disabled>
+          Retake Quiz
+        </Button>
+      </div>
     </div>
   )
 }

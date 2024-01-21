@@ -116,3 +116,20 @@ ul {
   margin: 0 auto;
 }
 
+.profile {
+  width: 40vw;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.retake-btn {
+  width: 20%;
+  margin-top: 32px !important;
+}
+

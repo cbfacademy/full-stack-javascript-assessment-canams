@@ -68,34 +68,40 @@ export default function SignUp({ open, setOpen }: SignUpProps) {
       >
         <Box sx={style} className="modal">
           <Typography id="modal-title" variant="h6" component="h2">
-            Sign Up
+            Begin Your Skincare Journey
           </Typography>
-          <FormControl>
-            <FormLabel htmlFor="name">Full Name</FormLabel>
-            <TextField
-              required
-              id="name"
-              type="text"
-              variant="standard"
-              onChange={(e) => setName(e.target.value)}
-            />
-            <FormLabel htmlFor="email">Email</FormLabel>
-            <TextField
-              required
-              id="email"
-              type="email"
-              variant="standard"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <FormLabel htmlFor="password">Password</FormLabel>
-            <TextField
-              required
-              id="password"
-              variant="standard"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Button type="submit" onClick={handleSubmit}>
+          <FormControl className="form">
+            <div className="inputs">
+              <TextField
+                required
+                id="name"
+                type="text"
+                placeholder="Full Name"
+                variant="standard"
+                className="form-input"
+                onChange={(e) => setName(e.target.value)}
+              />
+              <TextField
+                required
+                id="email"
+                type="email"
+                placeholder="Email"
+                variant="standard"
+                className="form-input"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <TextField
+                required
+                id="password"
+                variant="standard"
+                type="password"
+                placeholder="Password"
+                className="form-input"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <Button type="submit" onClick={handleSubmit} className="signup-btn">
               Sign Up
             </Button>
           </FormControl>

@@ -5,15 +5,12 @@ import CircleUnchecked from "@mui/icons-material/RadioButtonUnchecked"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Tooltip from "@mui/material/Tooltip"
 import "../../styles/ExistingUser.css"
-import { useEffect } from "react"
 import { User } from "../../types/User"
-import { RoutineType } from "../../types/Routine"
 
 type PlanProps = {
   user: User
-  routine: RoutineType
 }
-const Plan = ({ user, routine }: PlanProps) => {
+const Plan = ({ user }: PlanProps) => {
   return (
     <div>
       <h3 className="header">Today's View</h3>

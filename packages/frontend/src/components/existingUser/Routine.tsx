@@ -1,16 +1,12 @@
 import { Button } from "@mui/material"
 import Paper from "@mui/material/Paper"
-import { useEffect, useState } from "react"
-import { getUserRoutine } from "../../services/RoutineService"
 import { RoutineType } from "../../types/Routine"
-import { User } from "../../types/User"
 
 type RoutineProps = {
   changeTab: (value: number) => void
-  user: User
   routine: RoutineType
 }
-const Routine = ({ changeTab, user, routine }: RoutineProps) => {
+const Routine = ({ changeTab, routine }: RoutineProps) => {
   const weekRoutine = [
     { day: "Monday" },
     { day: "Tuesday" },
@@ -24,7 +20,7 @@ const Routine = ({ changeTab, user, routine }: RoutineProps) => {
   if (!routine) return <>"Loading..."</>
 
   return (
-    <div>
+    <div className="routine-page">
       <h3 className="header">Your Custom Routine</h3>
       <div>
         <h4>Weekly</h4>
