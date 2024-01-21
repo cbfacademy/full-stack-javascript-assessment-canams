@@ -4,10 +4,9 @@ import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 import Alert from "@mui/material/Alert"
 import TextField from "@mui/material/TextField"
-import { Button, FormControl, FormLabel } from "@mui/material"
+import { Button, FormControl } from "@mui/material"
 import "../../styles/SignUp.css"
 import { createUser } from "../../services/UserService"
-import { useNavigate } from "react-router-dom"
 
 const style = {
   position: "absolute",
@@ -31,7 +30,7 @@ export default function SignUp({ open, setOpen }: SignUpProps) {
   const [name, setName] = useState<string>()
   const [password, setPassword] = useState<string>()
   const [error, setError] = useState<string | null>(null)
-  const navigate = useNavigate()
+  const [success, setSuccess] = useState<string | null>(null)
 
   const handleSubmit = async () => {
     if (name && email && password) {
@@ -44,7 +43,8 @@ export default function SignUp({ open, setOpen }: SignUpProps) {
         if (data.error) {
           setError(data.error)
         } else {
-          navigate("/dashboard")
+          setOpen(false)
+          setSuccess("Account created  successfully. You can now sign in")
         }
       } catch (e) {
         setError(e as string)
@@ -57,6 +57,15 @@ export default function SignUp({ open, setOpen }: SignUpProps) {
       {error && (
         <Alert variant="filled" severity="error" className="error">
           {error}
+        </Alert>
+      )}
+      {success && (
+        <Alert
+          severity="success"
+          className="error"
+          onClose={() => setSuccess(null)}
+        >
+          {success}
         </Alert>
       )}
       <Modal

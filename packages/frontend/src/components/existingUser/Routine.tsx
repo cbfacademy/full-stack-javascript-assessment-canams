@@ -1,12 +1,14 @@
 import { Button } from "@mui/material"
 import Paper from "@mui/material/Paper"
 import { RoutineType } from "../../types/Routine"
+import { User } from "../../types/User"
 
 type RoutineProps = {
   changeTab: (value: number) => void
   routine: RoutineType
+  user: User
 }
-const Routine = ({ changeTab, routine }: RoutineProps) => {
+const Routine = ({ changeTab, routine, user }: RoutineProps) => {
   const weekRoutine = [
     { day: "Monday" },
     { day: "Tuesday" },
@@ -16,6 +18,11 @@ const Routine = ({ changeTab, routine }: RoutineProps) => {
     { day: "Saturday" },
     { day: "Sunday" },
   ]
+
+  const showTreatments =
+    user.skinProfile?.complexity === "extensive" &&
+    routine.treatments.length > 0 &&
+    user.skinProfile.budget === "luxury"
 
   if (!routine) return <>"Loading..."</>
 
@@ -47,7 +54,7 @@ const Routine = ({ changeTab, routine }: RoutineProps) => {
       <div>
         <h4>Regular Treatments</h4>
         <div className="treatment-container">
-          {routine.treatments.length > 0 ? (
+          {showTreatments ? (
             <ul>
               {routine.treatments.map((treatment, i) => (
                 <li key={i} className="treatment-item">

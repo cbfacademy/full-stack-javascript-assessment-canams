@@ -20,3 +20,8 @@
   transform: scale(1.2);
 }
 
+.avatar {
+  margin-right: 15px !important;
+  margin-top: 5px !important;
+}
+
