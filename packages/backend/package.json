@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon index.ts",
+    "start": "node index.ts",
+    "heroku-postbuild": "cd ../frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -26,3 +27,4 @@
     "nodemon": "^3.0.1"
   }
 }
+
