@@ -8,9 +8,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:frontend": "cd packages/frontend && npm start",
-    "start:backend": "cd packages/backend && npm start",
-    "install:all": "npm install && cd packages/frontend && npm install && cd ../backend && npm install"
+    "start": "npm start --prefix backend",
+    "install-client": "cd frontend && npm install && npm run build && cd ..",
+    "install-server": "cd backend && npm install && cd .. ",
+    "heroku-postbuild": "npm run install-client && npm run install-server",
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && npm start",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
   },
   "repository": {
     "type": "git",
@@ -24,3 +28,4 @@
   },
   "homepage": "https://github.com/cbfacademy/full-stack-javascript#readme"
 }
+
