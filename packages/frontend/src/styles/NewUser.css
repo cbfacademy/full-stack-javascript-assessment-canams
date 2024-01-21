@@ -18,11 +18,12 @@
   padding: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .navButtons {
-  position: relative;
-  bottom: 0;
+  /* position: absolute; */
+  bottom: 40px;
   width: 100%;
 }
 

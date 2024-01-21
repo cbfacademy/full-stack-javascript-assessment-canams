@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Avatar from "@mui/material/Avatar"
 import "../styles/Header.css"
 import IconButton from "@mui/material/IconButton"
@@ -41,6 +41,7 @@ const Header = ({ loggedIn }: HeaderProps) => {
         <>
           <IconButton
             onClick={handleClick}
+            className="avatar"
             size="small"
             sx={{ ml: 2 }}
             aria-controls={open ? "account-menu" : undefined}

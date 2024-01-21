@@ -31,7 +31,15 @@ const routineQuestions: QuizItem[] = [
   {
     question: "Which of the following steps are currently in your routine?",
     answerType: "checkbox" as AnswerType,
-    answerOptions: ["Cleanse", "Tone", "Serum", "Treat", "Sun protection"],
+    answerOptions: [
+      "Cleanse",
+      "Tone",
+      "Serum",
+      "Treat",
+      "Moisturise",
+      "Sun protection",
+      "Professional treatments",
+    ],
     limit: false,
     userAnswer: [],
   },
