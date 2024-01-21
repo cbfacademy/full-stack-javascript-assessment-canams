@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth"
 
 const firebaseConfig = {
   apiKey: "AIzaSyDFmT3rKLRTpE_dzmzCjNbLOPRoHszHv_Q",
@@ -30,6 +30,8 @@ export const signIn = (email: string, password: string) =>
     }
     throw "There was an error signing in. Please try again later."
   })
+
+export const logOut = () => signOut(auth)
 
 export const createToken = async () => {
   const user = auth.currentUser
