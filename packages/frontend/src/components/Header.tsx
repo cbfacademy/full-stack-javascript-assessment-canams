@@ -28,7 +28,7 @@ const Header = ({ loggedIn }: HeaderProps) => {
 
   return (
     <div className="nav">
-      <Link to="/" className="nav-item">
+      {/* <Link to="/" className="nav-item">
         HOME
       </Link>
       <Link to="/about" className="nav-item">
@@ -36,7 +36,7 @@ const Header = ({ loggedIn }: HeaderProps) => {
       </Link>
       <Link to="/contact" className="nav-item">
         CONTACT
-      </Link>
+      </Link> */}
       {loggedIn && (
         <>
           <IconButton

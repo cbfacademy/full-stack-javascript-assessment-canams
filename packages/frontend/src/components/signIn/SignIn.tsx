@@ -57,7 +57,7 @@ export default function SignIn({ open, setOpen }: SignInProps) {
       >
         <Box sx={style} className="modal">
           <Typography id="modal-title" variant="h6" component="h2">
-            Sign In
+            Sign in
           </Typography>
           <FormControl>
             <FormLabel htmlFor="email">Email</FormLabel>
@@ -76,7 +76,7 @@ export default function SignIn({ open, setOpen }: SignInProps) {
               type="password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button type="submit" onClick={handleSubmit}>
+            <Button type="submit" onClick={handleSubmit} className="signin-btn">
               Sign In
             </Button>
           </FormControl>

@@ -3,3 +3,33 @@
   top: 10px;
   left: 40vw;
 }
+
+#modal-title {
+  margin-bottom: 20px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  /* width: 100%; */
+}
+
+.form-input {
+  margin-bottom: 20px !important;
+  /* width: 50%; */
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.signup-btn {
+  margin-top: 16px !important;
+}
+

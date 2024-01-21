@@ -21,7 +21,6 @@ router.get(
   async (req: express.Request, res: express.Response) => {
     const { type, concern } = req.query
 
-    console.log(req.query)
     if (!type || !concern) {
       return res.status(400).json({
         error: "Invalid request parameters. Must contain type and concern.",
