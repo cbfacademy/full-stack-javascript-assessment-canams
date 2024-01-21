@@ -1,0 +1,135 @@
+.dashboard-page {
+  margin-top: 3vh;
+  padding: 30px;
+}
+
+.tab {
+  color: black;
+}
+
+.header {
+  margin: 0;
+}
+
+.routine-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.routine-container h5 {
+  margin-top: 0;
+}
+
+.routine-container p {
+  font-size: 0.6em;
+}
+
+.day-routine {
+  height: 24vh;
+  width: 12vw;
+
+  min-width: fit-content;
+  min-height: fit-content;
+  padding: 5px;
+}
+
+.treatment-container {
+  display: flex;
+}
+
+ul {
+  margin-top: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.day-button {
+  border-radius: 0 !important;
+  margin: 20px !important;
+  color: white !important;
+}
+
+.plan-container {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.plan-item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.plan-item-card {
+  height: 50vh;
+  width: 30vw;
+
+  min-width: fit-content;
+  min-height: fit-content;
+
+  margin-top: 20px;
+}
+
+.plan-item-label {
+  margin: 5px 10px;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-done {
+  color: black;
+}
+
+.banner {
+  width: 80vw;
+  height: 40vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.learning-info {
+  color: black;
+}
+
+.info-header {
+  width: 100%;
+  text-align: center;
+}
+
+.info-text {
+  font-size: 0.8em;
+}
+
+.dismiss {
+  margin: 0 auto;
+}
+
+.profile {
+  width: 40vw;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.retake-btn {
+  width: 20%;
+  margin-top: 32px !important;
+}
+

@@ -1,0 +1,27 @@
+.nav {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  z-index: 1;
+}
+
+.nav-item {
+  margin: 15px 30px;
+  text-decoration: none;
+  color: #a59781;
+  font-family: "Source Code Pro", monospace;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item:hover {
+  transform: scale(1.2);
+}
+
+.avatar {
+  margin-right: 15px !important;
+  margin-top: 5px !important;
+}
+

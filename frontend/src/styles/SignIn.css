@@ -1,0 +1,14 @@
+#modal-title {
+  color: black;
+}
+
+.error {
+  position: absolute;
+  top: 10px;
+  left: 40vw;
+}
+
+.signin-btn {
+  margin-top: 32px !important;
+}
+

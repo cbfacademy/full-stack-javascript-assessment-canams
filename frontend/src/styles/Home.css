@@ -1,0 +1,103 @@
+.home {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: flex-end;
+  justify-content: center;
+  background-image: url("../assets/bg.jpg");
+  background-size: cover;
+}
+
+.login-text {
+  font-weight: bold !important;
+  text-shadow: #323232;
+}
+
+.content {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 8rem;
+  font-family: "Bebas Neue", sans-serif;
+  color: #323232;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.title > span {
+  font-family: "Handlee", cursive;
+}
+
+.link {
+  margin-top: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.start-button {
+  color: #fff;
+  transition: all 0.3s;
+  position: relative;
+  margin-bottom: 15px !important;
+}
+.start-button span {
+  transition: all 0.3s;
+}
+.start-button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+  transform: scale(0.1, 1);
+}
+.start-button:hover span {
+  letter-spacing: 2px;
+}
+.start-button:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.start-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.start-button:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+
+.login {
+  font-family: "Courier New", Courier, monospace !important;
+}
+

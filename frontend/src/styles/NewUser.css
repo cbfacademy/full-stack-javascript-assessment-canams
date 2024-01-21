@@ -1,0 +1,33 @@
+.newUserPage {
+  margin: 50px 20px;
+}
+
+.header {
+  color: #555;
+}
+
+.quizContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.paper {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navButtons {
+  /* position: absolute; */
+  bottom: 40px;
+  width: 100%;
+}
+
+.next {
+  float: right;
+}
+
