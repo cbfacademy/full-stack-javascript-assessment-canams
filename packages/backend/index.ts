@@ -5,6 +5,7 @@ import userRouter from "./controllers/user"
 import quizRouter from "./controllers/quiz"
 import dotenv from "dotenv"
 import connectToDatabase from "./services/db"
+import path from "path"
 
 dotenv.config()
 const app = express()
@@ -21,21 +22,21 @@ if (process.env.MONGO_URI) {
   throw new Error("Mongo URI not set")
 }
 
-// const client = new MongoClient(uri, {
-//   serverApi: {
-//     version: ServerApiVersion.v1,
-//     strict: true,
-//     deprecationErrors: true,
-//   },
-// })
-
-// await client.connect()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8080
 
 connectToDatabase(uri, app)
   .then(() => {
-    app.use("/user", userRouter)
-    app.use("/profile", quizRouter)
+    app.use("/api/user", userRouter)
+    app.use("/api/profile", quizRouter)
+    if (
+      process.env.NODE_ENV === "production" ||
+      process.env.NODE_ENV === "staging"
+    ) {
+      app.use(express.static("client/build"))
+      app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname + "/client/build/index.html"))
+      })
+    }
 
     app.listen(PORT, () => {
       console.log(`Server started at http://localhost:${PORT}`)
@@ -45,12 +46,4 @@ connectToDatabase(uri, app)
     console.error("Database connection failed", error)
     process.exit()
   })
-
-// app.get("/", (req, res) => {
-//   res.send("Hello from the CBF Academy backend!")
-// })
-
-// app.listen(PORT, () => {
-//   console.log(`Server started on http://localhost:${PORT}`)
-// })
 

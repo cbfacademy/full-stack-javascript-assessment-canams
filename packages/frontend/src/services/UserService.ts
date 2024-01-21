@@ -2,7 +2,7 @@ import { User } from "../types/User"
 import { createToken } from "./firebase"
 
 export const createUser = (newUser: User) =>
-  fetch("http://localhost:8080/user", {
+  fetch("/api/user", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -16,6 +16,6 @@ export const createUser = (newUser: User) =>
 
 export const getUser = async () => {
   const headers = await createToken()
-  return fetch("http://localhost:8080/user", { headers: headers })
+  return fetch("/api/user", { headers: headers })
 }
 

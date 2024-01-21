@@ -3,7 +3,7 @@ import { createToken } from "./firebase"
 
 export const updateUserProfile = async (newProfile: SkinProfile) => {
   const headers = await createToken()
-  return fetch("http://localhost:8080/profile", {
+  return fetch("/api/profile", {
     method: "POST",
     headers: headers,
     body: JSON.stringify(newProfile),
@@ -20,7 +20,7 @@ export const getUserRoutine = async (type: string, concern: string) => {
     concern: concern,
   })
   const headers = await createToken()
-  return fetch(`http://localhost:8080/profile/routine?${params}`, {
+  return fetch(`/api/profile/routine?${params}`, {
     headers: headers,
   })
     .then((response) => response.json())
@@ -28,9 +28,4 @@ export const getUserRoutine = async (type: string, concern: string) => {
       throw error
     })
 }
-
-// export const getUser = async () => {
-//   const headers = await createToken()
-//   return fetch("http://localhost:8080/user", headers)
-// }
 
