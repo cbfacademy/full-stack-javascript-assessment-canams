@@ -94,7 +94,7 @@ Below are some of the key features of the application, and their purpose.
 
 Chia Anamekwe - canamsenquiries@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [CHI.skin](https://chi-skin-915ddb451c5d.herokuapp.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
