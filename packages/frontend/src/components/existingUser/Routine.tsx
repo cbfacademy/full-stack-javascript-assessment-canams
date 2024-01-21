@@ -19,12 +19,12 @@ const Routine = ({ changeTab, routine, user }: RoutineProps) => {
     { day: "Sunday" },
   ]
 
+  if (!routine || !user) return <>"Loading..."</>
+
   const showTreatments =
     user.skinProfile?.complexity === "extensive" &&
     routine.treatments.length > 0 &&
     user.skinProfile.budget === "luxury"
-
-  if (!routine) return <>"Loading..."</>
 
   return (
     <div className="routine-page">
