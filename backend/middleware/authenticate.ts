@@ -16,6 +16,8 @@ export default async function (
 
     if (!firebaseUser) {
       // Unauthorized
+      console.log("firebase")
+
       return res.sendStatus(401)
     }
 
@@ -27,6 +29,8 @@ export default async function (
 
     if (!user) {
       // Unauthorized
+      console.log("mongo")
+
       return res.sendStatus(401)
     }
 
@@ -34,6 +38,7 @@ export default async function (
 
     next()
   } catch (err) {
+    console.log(err)
     //Unauthorized
     res.sendStatus(401)
   }
